@@ -3,6 +3,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import test.java.pageObject.context.searchContext;
 import test.java.pageObject.context.mainContext;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
@@ -37,13 +38,13 @@ public class SearchTest extends BaseTest {
         Assert.assertTrue(searchContext.payByCard() && searchContext.payByParts());
     }
 
-//    @Test(groups = {"color"})
-//    public void matchTitleColor(){
-//        mainContext.goToPhoneSearch();
-//        String expectedColorTitle = "rgb(255, 153, 0)";
-//        String actualColorTitle =  searchContext.getColorHoverTitle();
-//        assertThat(actualColorTitle, equalTo(expectedColorTitle));
-//    }
+    @Test(groups = {"color"})
+    public void matchTitleColor(){
+        mainContext.goToPhoneSearch();
+        String expectedColorTitle = "rgb(255, 153, 0)";
+        String actualColorTitle =  searchContext.getColorHoverTitle();
+        assertThat(actualColorTitle, equalTo(expectedColorTitle));
+    }
 
     @Test(groups = {"inList"})
     public void matchColorInList(){
@@ -51,6 +52,24 @@ public class SearchTest extends BaseTest {
         String expectedColor = "rgb(255, 72, 0)";
         String actualColor = searchContext.getColorInList();
         assertThat(actualColor, equalTo(expectedColor));
+    }
+
+    @Test(groups= {"searchByFilter"})
+    public void searchByModel() throws InterruptedException {
+        mainContext.goToPhoneSearch();
+        searchContext.clickAsusModelFilter();
+        String nameModel = "Asus";
+        Thread.sleep(1000);
+        boolean isContains = true;
+        for (String title: searchContext.titleList())
+        {
+            if (title.contains(nameModel))
+                continue;
+
+            isContains = false;
+            break;
+        }
+        Assert.assertTrue(isContains);
     }
 
 }

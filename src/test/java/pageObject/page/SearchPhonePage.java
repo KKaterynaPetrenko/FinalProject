@@ -79,6 +79,12 @@ public class SearchPhonePage extends BasePage {
     @FindBy(xpath = "//a[@href=\"/compare/1232/\"]")
     private WebElement compareBtn;
 
+    @FindBy(xpath = "//*[@href=\"/ct/1232/?fo=97\"]")
+    private WebElement modelAsusFilter;
+
+    @FindBy(xpath = "//*[@class=\"catalog-block-head\"]")
+    private List<WebElement> titlesOfResults;
+
 
     public void inputMaxPrice(String maxPrice){
         fieldMaxPrice.sendKeys(maxPrice);
@@ -154,5 +160,11 @@ public class SearchPhonePage extends BasePage {
     }
     public void clickToCompare(){
         compareBtn.click();
+    }
+    public void clickOnAsusModelFilter(){
+        modelAsusFilter.click();
+    }
+    public List<WebElement> getTitlesOfResults(){
+        return titlesOfResults;
     }
 }

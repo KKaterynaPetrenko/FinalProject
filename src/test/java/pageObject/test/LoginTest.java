@@ -1,13 +1,7 @@
 package test.java.pageObject.test;
-import org.openqa.selenium.Cookie;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import test.java.pageObject.context.mainContext;
-
-import java.util.Set;
 
 public class LoginTest extends BaseTest {
 

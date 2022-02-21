@@ -111,4 +111,18 @@ public class searchContext {
     public static void clickFirstResult(){
         searchPhonePage.clickFirstResult();
     }
+    public static ArrayList<String> titleList(){
+        List<WebElement> titlesElements = searchPhonePage.getTitlesOfResults();
+        ArrayList<String> titles = new ArrayList<>();
+
+        for (WebElement element: titlesElements) {
+            String title = element.getText();
+            titles.add(title);
+        }
+        return titles;
+    }
+    public static void clickAsusModelFilter(){
+        searchPhonePage.clickOnAsusModelFilter();
+    }
+
 }
