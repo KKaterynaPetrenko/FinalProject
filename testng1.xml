@@ -1,0 +1,12 @@
+<suite name="Group of group Suite" verbose="1">
+    <test name="Test By Classes">
+        <classes>
+            <class name="test.java.pageObject.test.searchMainTest"/>
+            <class name="test.java.pageObject.test.SearchTest"/>
+            <class name="test.java.pageObject.test.CompareTest"/>
+            <class name="test.java.pageObject.test.ListTest"/>
+            <class name="test.java.pageObject.test.LoginTest"/>
+            <class name="test.java.pageObject.test.UserTest"/>
+        </classes>
+    </test>
+</suite>
