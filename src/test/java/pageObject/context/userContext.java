@@ -10,4 +10,7 @@ public class userContext {
     public static void deleteFavoriteShop(){
         userPage.deleteFavoriteShop();
     }
+    public static String notAnyFavoriteShop(){
+       return userPage.getTextNotFavoriteShop();
+    }
 }

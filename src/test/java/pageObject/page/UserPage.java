@@ -22,12 +22,19 @@ public class UserPage extends BasePage{
     @FindBy(className = "favorite-delete")
     private WebElement iconDeleteFavorite;
 
+    @FindBy(className = "about-site-head")
+    private WebElement notAnyFavoriteShop;
+
     public String getTitleFavoriteShop(){
         return titleFavoriteShop.getText();
     }
 
     public void deleteFavoriteShop(){
         iconDeleteFavorite.click();
+    }
+
+    public String getTextNotFavoriteShop(){
+        return notAnyFavoriteShop.getText();
     }
 
 }

@@ -20,6 +20,21 @@ public class UserTest extends BaseTest{
         String titleInUserPage = userContext.getTitleOfFavoriteShop();
         boolean result = titleInUserPage.contains(titleInItemPage);
         Assert.assertTrue(result);
+        userContext.deleteFavoriteShop();
 
     }
+    @Test(groups = "favoriteShop")
+    public void deleteFavoriteShop() throws InterruptedException {
+        mainContext.clickOnUserInfo();
+        mainContext.login();
+        Thread.sleep(2000);
+        mainContext.goToPhoneSearch();
+        searchContext.clickFirstResult();
+        itemContext.addFavoriteShop();
+        userContext.deleteFavoriteShop();
+        driver.navigate().refresh();
+        String notAnyItem = userContext.notAnyFavoriteShop();
+        Assert.assertTrue(notAnyItem.contains("Немає"));
+    }
+
 }
